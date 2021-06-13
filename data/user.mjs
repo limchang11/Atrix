@@ -9,10 +9,10 @@ export class UserRole {
 	static get User()  { return "user";  }
 }
 
-/**
- * A database entity model that represents contents in the database.
+/**in the database.
  * This model is specifically designed for users
- * @see "https://sequelize.org/master/manual/model-basics.html#taking-advantage-of-models-being-classes"
+ * @see "https://sequelize.org/master/manual/
+ * A database entity model that represents contents model-basics.html#taking-advantage-of-models-being-classes"
 **/
 export class ModelUser extends Model {
 	/**

@@ -3,6 +3,8 @@ import ORM    from 'sequelize';
 const { Sequelize } = ORM;
 
 import { ModelUser } from './user.mjs';
+import {Products} from './Products.mjs';
+import {Feedback} from './feedback.mjs';
 
 /**
  * @param database {ORM.Sequelize}
@@ -12,6 +14,8 @@ export function initialize_models(database) {
 		console.log("Intitializing ORM models");
 		//	Initialzie models
 		ModelUser.initialize(database);
+		Products.initialize(database);
+		Feedback.initialize(database);
 
 		console.log("Building ORM model relations and indices");
 		//	Create relations between models or tables
