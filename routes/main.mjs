@@ -1,13 +1,13 @@
 import { Router }       from 'express';
-import { flashMessage } from '../utils/flashmsg.mjs'
+import { flashMessage } from '../utils/flashmsg.mjs';
 
 const router = Router();
 export default router;
 
 // ---------------- 
 //	Serves dynamic files from the dynamic folder
-router.get("/dynamic/:path", async function (req, res) {	
-	return res.sendFile(`./dynamic/${req.params.path}`)
+router.get("/dynamic/*", async function (req, res) {
+	return res.sendFile(`${process.cwd()}/dynamic/${req.params[0]}`);
 });
 
 // ---------------- 
@@ -38,6 +38,5 @@ router.get("/product", async function(req, res) {
 
 router.get("/feedback", async function(req, res) {
 	console.log("feedback page accessed");
-	
 	return res.render('feedback' );
 });

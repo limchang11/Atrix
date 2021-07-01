@@ -13,18 +13,19 @@ export class Products extends Model {
 			"uuid"       : { type: DataTypes.CHAR(36),    primaryKey: true, defaultValue: DataTypes.UUIDV4 },
 			"dateCreated": { type: DataTypes.DATE(),      allowNull: false, defaultValue: Sequelize.literal('CURRENT_TIMESTAMP') },
 			"dateUpdated": { type: DataTypes.DATE(),      allowNull: false, defaultValue: Sequelize.literal('CURRENT_TIMESTAMP') },
-			"Productname"       : { type: DataTypes.STRING(64),  allowNull: false },
-			"Productdesc"   : { type: DataTypes.STRING(64),  allowNull: false },
-			"Productstock"       : { type: DataTypes.STRING(64),  allowNull: false },
+			"name"       : { type: DataTypes.STRING(64),  allowNull: false },
+			"description": { type: DataTypes.STRING(64),  allowNull: false },
+			"stock"      : { type: DataTypes.STRING(64),  allowNull: false }
 		}, {
 			"sequelize": database,
-			"modelName": "Users",
+			"modelName": "Products",
 			"hooks"    : {
-				"afterUpdate": ModelUser._auto_update_timestamp
+				"afterUpdate": Products._auto_update_timestamp
 			}
 		});
-    }
-    static _auto_update_timestamp(instance, options) {
+	}
+	static _auto_update_timestamp(instance, options) {
 		// @ts-ignore
-		instance.dateUpdated = Sequelize.literal('CURRENT_TIMESTAMP');}
+		instance.dateUpdated = Sequelize.literal('CURRENT_TIMESTAMP');
+	}
 }
