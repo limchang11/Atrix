@@ -14,8 +14,10 @@ router.get("/dynamic/*", async function (req, res) {
 //	TODO: Attach additional routers here
 import RouterAuth  from './auth.mjs';
 import RouterAdmin from './admin/admin.mjs';
+import RouterCreateInvoice from './invoice.mjs'
 router.use("/auth",  RouterAuth);
 router.use("/admin", RouterAdmin);
+router.use("/invoice", RouterCreateInvoice);
 
 
 router.get("/", async function (req, res) {
