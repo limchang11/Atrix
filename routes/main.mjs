@@ -15,9 +15,11 @@ router.get("/dynamic/*", async function (req, res) {
 import RouterAuth  from './auth.mjs';
 import RouterAdmin from './admin/admin.mjs';
 import RouterCreateInvoice from './invoice.mjs'
+import RouterSupplier from './supplier.mjs'
 router.use("/auth",  RouterAuth);
 router.use("/admin", RouterAdmin);
 router.use("/invoice", RouterCreateInvoice);
+router.use("/supplier", RouterSupplier);
 
 
 router.get("/", async function (req, res) {
