@@ -48,3 +48,39 @@ async function ensure_admin(req, res, next) {
 async function dashboard_page(req, res) {
 	return res.render("admin/dashboard");
 }
+//arief crud
+// read specific data
+// router.get("/read", async function(req, res) {
+// 	console.log("feedback page accessed");
+// 	//to retrieve data
+// 	const feedlist = await Feedback.findAll({
+// 		where: {
+// 			firstName: "fef"
+// 		}
+// 	});
+// 	console.log(feedlist);
+// 	return res.render('feedback' );
+// });
+
+// to update
+// router.get("/update", async function(req, res) {
+// 	console.log("feedback page accessed");
+// 	const feedlist = await Feedback.update(
+// 		{ firstName: "Iskandar" },
+// 		{ where: {firstName: "fef"}
+// 	});
+// 	console.log(feedlist);
+// 	return res.render('feedback' );
+// });
+
+
+//to delte
+// router.get("/delete", async function(req, res) {
+// console.log("feedback page accessed");
+
+// 	const feedlist = await Feedback.destroy({
+// 		where: {
+// 			firstName: "Iskandar"
+// 		}
+// 	});
+// 	console.log(feedlist);
