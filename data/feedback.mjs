@@ -11,8 +11,6 @@ export class Feedback extends Model {
 	static initialize(database) {
 		Feedback.init({
 			"uuid"        : { type: DataTypes.CHAR(36), primaryKey: true, defaultValue: DataTypes.UUIDV4 },
-			"dateCreated" : { type: DataTypes.DATE(), allowNull: false, defaultValue: Sequelize.literal('CURRENT_TIMESTAMP') },
-			"dateUpdated" : { type: DataTypes.DATE(), allowNull: false, defaultValue: Sequelize.literal('CURRENT_TIMESTAMP') },
 			"firstName"   : { type: DataTypes.STRING(64), allowNull: false },
 			"lastName"    : { type: DataTypes.STRING(64), allowNull: false },
 			"email"       : { type: DataTypes.STRING(64), allowNull: false },
