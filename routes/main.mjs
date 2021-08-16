@@ -1,5 +1,6 @@
 import { Router }       from 'express';
 import { flashMessage } from '../utils/flashmsg.mjs';
+import { Feedback } from '../data/feedback.mjs';
 
 const router = Router();
 export default router;
@@ -42,6 +43,26 @@ router.get("/product", async function(req, res) {
 
 router.get("/feedback", async function(req, res) {
 	console.log("feedback page accessed");
+	return res.render('feedback' );
+});
+router.post("/acknowledge", async function(req, res) {
+	console.log("feedback page accessed");
+	// to check what is stored:console.log(req.body);
+    //to store in sql 
+	try {
+		const feed = await Feedback.create({
+			firstName: req.body.firstname,
+			lastName: req.body.lastname,
+			email: req.body.mailid,
+			country: req.body.country,
+			feedback: req.body.subject
+		})
+	}
+	catch (error) {
+		console.error ("Failed to store feedback info");
+		console.error (error);
+	  }
+
 	return res.render('feedback' );
 });
 // read specific data
