@@ -63,7 +63,7 @@ router.post("/acknowledge", async function(req, res) {
 		console.error (error);
 	  }
 
-	return res.render('feedback' );
+	return res.render('confirmfeedback.handlebars' );
 });
 // read specific data
 // router.get("/read", async function(req, res) {
