@@ -74,7 +74,12 @@ input[type=submit]:hover {
 </style>    
 </head>    
 <body>    
-<h2 style="text-align: center;">FEEDBACK FORM</h2>    
+<h2 style="text-align: center;">CONTACT US</h2>  
+<div class="jumbotron text-center">
+  <h1 class="display-3">We would Love to hear from you!</h1>
+  <p class="lead"> Here at Atrix we would want to contstantly improve our customer experience</p>
+  <p class = "lead"> Please Leave us a feedback on how to improve.</p>
+  <hr>
 <div class="container">    
   <form method = 'post' action = '/acknowledge'>    
     <div class="row">    
@@ -82,7 +87,7 @@ input[type=submit]:hover {
         <label for="fname">First Name:</label>    
       </div>    
       <div class="col-75">    
-        <input type="text" id="fname" name="firstname" placeholder="Your name..">    
+        <input type="text" id="fname" name="firstname" placeholder="Your First Name..">    
       </div>    
     </div>    
     <div class="row">    
@@ -90,7 +95,7 @@ input[type=submit]:hover {
         <label for="lname">Last Name:</label>    
       </div>    
       <div class="col-75">    
-        <input type="text" id="lname" name="lastname" placeholder="Your last name..">    
+        <input type="text" id="lname" name="lastname" placeholder="Your Last Name..">    
       </div>    
     </div>    
     <div class="row">    
@@ -98,7 +103,7 @@ input[type=submit]:hover {
           <label for="email">Mail Id:</label>    
         </div>    
         <div class="col-75">    
-          <input type="email" id="email" name="mailid" placeholder="Your mail id..">    
+          <input type="email" id="email" name="mailid" placeholder="Your Email ID">    
         </div>    
       </div>    
     <div class="row">    
@@ -127,10 +132,16 @@ input[type=submit]:hover {
         <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>    
       </div>    
     </div>    
-    <div class="row">    
+    <div class="mx-auto row">    
       <input type="submit" value="Submit">    
     </div>    
-  </form>    
+  </form>
+  <div class="row"><div class = "mr-auto my-auto"><p>To get in touch with us or visit us at our HQ:</p><p>Company: Atrix</p><p>Phone:+6567421937</p>
+  <p>Address: Geylang, #01-08, 388409</p><p>Work Hours: Mon-Sat, 9:30 am to 10:30 pm</p></div>
+  <iframe class= "ml-auto" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.139807396248!2d103.85689713980418!3d1.3040614369700319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da183acbc05a49%3A0x5aa15254146920b3!2sAtrix%20Building!5e0!3m2!1sen!2ssg!4v1629203474202!5m2!1sen!2ssg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+  </div>
+      
 </div>    
     
 </body>    
