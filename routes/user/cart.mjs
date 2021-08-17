@@ -18,7 +18,7 @@ router.get("/",      async function(req, res) {
 
     try {
         const cart = await Cart.findAll({
-            where: { user_id: req.user.uuid }
+            // where: { user_id: req.user.uuid }
         });
 
         console.log(cart);
