@@ -10,8 +10,8 @@ import {initialize_models } from './models.mjs';
  */
 const Config = {
 	database: 'logins',
-	username: 'harith',
-	password: 'mysql',
+	username: 'root',
+	password: 'limchang123456789',
 	host    : 'localhost',
 	port    : 3306
 };
