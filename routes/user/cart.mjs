@@ -1,6 +1,6 @@
 import { Router }       from 'express';
-import { Products }    from '../data/products.mjs';
-import { Cart }         from '../data/cart.mjs';
+import { Products }    from '../../data/products.mjs';
+import { Cart }         from '../../data/cart.mjs';
 
 const router = Router();
 export default router;
@@ -28,11 +28,11 @@ router.get("/",      async function(req, res) {
             total += cart[prod].product_price * cart[prod].product_qty;
         } 
 
-        const total = total;
+        const total2 = total;
 
         return res.render('cart/cart', {
             cart    :   cart,
-            total   :   total.toFixed(2) 
+            total   :   total2.toFixed(2) 
         });
     }
     catch(error) {
