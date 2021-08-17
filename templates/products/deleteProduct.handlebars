@@ -1,0 +1,12 @@
+<div class="container">
+    <h1>Delete product (Admin)</h1>
+    <p>Are you sure you want to delete "{{name}}"?</p>
+
+    <form action="" method="POST">
+        <input type="hidden" id="name" name="name" value="{{name}}">
+        <input type="hidden" id="uuid" name="uuid" value="{{uuid}}">
+
+        <a href="/productsA" class="btn btn-secondary">Back</a>
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+</div>

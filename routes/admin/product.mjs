@@ -1,6 +1,6 @@
 import { Router }       from 'express';
-import { Products }    from '../data/products.mjs';
-var urlencodedParser = BodyParser.urlencoded({ extended: false });
+import { Products }    from '../../data/products.mjs';
+
 const router = Router();
 export default router;
 
@@ -27,39 +27,37 @@ router.get("/addProduct", async function(req, res){
 router.post('/addProduct', async function(req, res) {
     console.log("create products page accessed");
     console.log(req.body);
-    let errors = [];
+    
     try {
-        const name = await Product.findOne({where: {name:req.body.name}});
+        let errors = []
+
+        const name = await Products.findOne({where: {name:req.body.name}});
         if (name != null) {
             errors.push({text: "Repeated product name"})
         }
-        const description = await Product.findOne({where: {description:req.body.description}});
+        const description = await Products.findOne({where: {description:req.body.description}});
         if (description == null) {
             errors.push({text: "Repeated product description"})
         }
-        const price = await Product.findOne({where: {price:req.body.price}})
+        const price = await Products.findOne({where: {price:req.body.price}})
         if (price == null) {
             errors.push({text: "Repeated product price"})
         }
-        const stock = await Product.findOne({where: {stock:req.body.stock}})
-        if (stock == null) {
-            errors.push({text: "Repeated product stock"})
-        }
 
-        const create = await Product.create({
+        const create = await Products.create({
             name:           req.body.name,
             description:    req.body.description,
-            price:          req.body.price,
-            stock:          req.body.stock})
+            price:          req.body.price})
         
         console.log("Successfully created product");
     }
     catch(error) {
         console.error("Error creating product");
         console.error(error);
+        return res.status(500).end();
     }
 
-    return res.redirect('product');
+    return res.redirect('/productsA');
 });
 
 
@@ -93,7 +91,6 @@ router.get("/editProduct/:name", async function(req, res){
             name: req.params.name,
             description: products.description,
             price: products.price,
-            stock: products.stock,
             uuid: products.uuid
         })
     }
@@ -112,7 +109,6 @@ router.post("/editProduct/:name", async function (req, res){
             name:           req.body.name,
             description:    req.body.description,
             price:          req.body.price,
-            stock:          req.body.stock,
         }, { where: { uuid: req.body.uuid}});
 
         console.log("Successfully updated product");
@@ -120,10 +116,10 @@ router.post("/editProduct/:name", async function (req, res){
     catch(error) {
         console.error("Error updating product");
         console.error(error);
-        return res.render('product');
+        return res.status(500).end();
     }
 
-    return res.redirect('product');
+    return res.redirect('/productsA');
 })
 
 
@@ -155,9 +151,8 @@ router.post("/deleteProduct/:name", async function (req, res){
     catch(error) {
         console.error("Error has occured when trying to delete product");
         console.error(error);
+        return res.status(500).end();
     }
 
-    return res.redirect('product');
+    return res.redirect('/productsA');
 });
-
-module.exports = Router;

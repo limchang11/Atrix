@@ -20,6 +20,7 @@
         }    
     </style>
 </head>
+
 <body>
     <div class="container mt-4">
         <div class="jumbotron">
@@ -30,38 +31,23 @@
                     <div>
                     <table class="table table-striped">
                         <thead>
-                        <tr>
-                            <th></th>
-                            <th width="80%">Item</th>
-                            <th width="10%">Price</th>
-                            <th width="10%"></th>
-                        </tr>
+                            <tr>
+                                <th width="20%">Item</th>
+                                <th width="50%">Description</th>
+                                <th width="10%">Price</th>
+                                <th width="20%"></th>
+                            </tr>
                         </thead>
+
                         <tbody>
-                            <tr>
-                                <td><img>img here</td>
-                                <td>Item name</td>
-                                <td>Price</td>
-                                <td><input type="submit" value="Select"></td>
-                            </tr>
-                            <tr>
-                                <td><img>img here</td>
-                                <td>Item name</td>
-                                <td>Price</td>
-                                <td><input type="submit" value="Select"></td>
-                            </tr>
-                            <tr>
-                                <td><img>img here</td>
-                                <td>Item name</td>
-                                <td>Price</td>
-                                <td><input type="submit" value="Select"></td>
-                            </tr>
-                             <tr>                             # to continue
-                                <td><img>img here</td>
-                                <td>placeholder</td>
-                                <td>Price</td>
-                                <td><input type="submit" value="Select"></td>
-                            </tr>
+                            {{#each products}}
+                                <tr>
+                                    <td>{{this.name}}</td>
+                                    <td>{{this.description}}</td>
+                                    <td>{{this.price}}</td>
+                                    <td><a href="/cart/addToCart/{{this.name}}" class="btn btn-warning">Add To Cart</a></td>
+                                </tr>
+                            {{/each}}
                         </tbody>
                     </table>
                     </div>

@@ -10,14 +10,17 @@ export class Cart extends Model {
 	**/
 	static initialize(database) {
 		Cart.init({
-			"product_id"       : { type: DataTypes.CHAR(36),    primaryKey: true, allowNull: false },
-            "user_id"          : { type: DataTypes.CHAR(36), primaryKey: true, allowNull: false, defaultValue: DataTypes.UUIDV4  },
-            "quantity"         : { type:DataTypes.INTEGER,     allowNull: false, defaultValue: 1}
+            "uuid"             : { type: DataTypes.CHAR(36), 	primaryKey: true, defaultValue: DataTypes.UUIDV4 },
+            "user_id"          : { type: DataTypes.CHAR(36), 	allowNull: false, defaultValue: DataTypes.UUIDV4  },
+			"product_id"       : { type: DataTypes.CHAR(36),  	allowNull: false },
+            "product_name"     : { type: DataTypes.STRING(64),  allowNull: false },
+            "product_price"    : { type: DataTypes.FLOAT,     	allowNull: false },
+            "product_qty"      : { type:DataTypes.INTEGER,     	allowNull: false, defaultValue: 1}
 		}, {
 			"sequelize": database,
 			"modelName": "Cart",
 			"hooks"    : {
-				"afterUpdate": Products._auto_update_timestamp
+				"afterUpdate": Cart._auto_update_timestamp
 			}
 		});
 	}

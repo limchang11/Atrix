@@ -10,12 +10,10 @@ export class Products extends Model {
 	**/
 	static initialize(database) {
 		Products.init({
-			"uuid"       : { type: DataTypes.CHAR(36),    primaryKey: true, defaultValue: DataTypes.UUIDV4 },
-			"dateCreated": { type: DataTypes.DATE(),      allowNull: false, defaultValue: Sequelize.literal('CURRENT_TIMESTAMP') },
-			"dateUpdated": { type: DataTypes.DATE(),      allowNull: false, defaultValue: Sequelize.literal('CURRENT_TIMESTAMP') },
-			"name"       : { type: DataTypes.STRING(64),  allowNull: false },
-			"description": { type: DataTypes.STRING(64),  allowNull: false },
-			"stock"      : { type: DataTypes.STRING(64),  allowNull: false }
+			"uuid"       : { type: DataTypes.CHAR(36), primaryKey: true, defaultValue: DataTypes.UUIDV4 },
+			"name"       : { type: DataTypes.STRING(64), allowNull: false },
+			"description": { type: DataTypes.STRING(64), allowNull: false },
+			"price"      : { type: DataTypes.DECIMAL(5,2), allowNull: false }
 		}, {
 			"sequelize": database,
 			"modelName": "Products",

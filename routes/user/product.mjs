@@ -1,6 +1,6 @@
 import { Router }       from 'express';
-import { Products }    from '../data/products.mjs';
-import { Cart }         from '../data/cart.mjs';
+import { Products }    from '../../data/products.mjs';
+import { Cart }         from '../../data/cart.mjs';
 
 const router = Router();
 export default router;
@@ -25,7 +25,7 @@ router.get("/",      async function(req, res) {
         });
     }
     catch(error) {
-        console.log("Error acessing public products page");
+        console.log("Error accessing public products page");
         console.log(error);
     }
 });

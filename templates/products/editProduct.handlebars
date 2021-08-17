@@ -1,21 +1,27 @@
 <div class="row">
 	<div class="col-md-6 mx-auto">
 		<div class="card card-body">
-			<h3 class="text-center">Edit product</h3>
-			<form action="/products/edit" method="post">
+			<h3 class="text-center">Update product (Admin)</h3>
+			<form action="" method="POST">
 				<div class="form-group">
 					<label for="name">Name</label>
-					<input type="text" class="form-control" name="product_name" value="{{product_name}}" required>
+					<input type="text" class="form-control" name="name" value="{{name}}" required>
 				</div>
+				
 				<div class="form-group">
 					<label for="desc">Description</label>
 					<input type="text" name="description" class="form-control" value="{{description}}" required>
 				</div>
+
 				<div class="form-group">
-					<label for="stock">Stock</label>
-					<input type="text" name="stock" class="form-control" value="{{stock}}" required>
+					<label for="price">Price</label>
+					<input type="text" name="price" class="form-control" value="{{price}}" required>
 				</div>
-				<button type="submit" class="btn btn-primary">Edit</button>
+
+				<input type="hidden" id="uuid" name="uuid" value="{{uuid}}">
+    			<a href="/productsA" class="btn btn-danger">Back</a>
+
+				<input type="submit" value="Submit" class="btn btn-primary"/>
 			</form>
 		</div>
 	</div>
