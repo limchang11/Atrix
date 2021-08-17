@@ -1,0 +1,12 @@
+<div class="container">
+    <h1>Remove product</h1>
+    <p>Are you sure you want to remove "{{product_name}}" from cart?</p>
+
+    <form action="" method="POST">
+        <input type="hidden" id="name" name="name" value="{{product_name}}">
+        <input type="hidden" id="uuid" name="uuid" value="{{uuid}}">
+
+        <a href="/myCart" class="btn btn-secondary">Back</a>
+        <button type="submit" class="btn btn-danger">Remove</button>
+    </form>
+</div>

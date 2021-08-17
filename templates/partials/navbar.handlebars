@@ -26,6 +26,9 @@
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				{{#if user}}
+					<li class="nav-item">
+						<a class="nav-link" href="/myCart">Cart</a>
+					</li>
 					<li class="nav-item dropdown">
 						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">Profile
 							</a>
@@ -38,9 +41,6 @@
 						<a href="/auth/logout" class="nav-link">Logout</a>
 					</li>
 				{{else}}
-					<li class="nav-item">
-						<a class="nav-link" href="/myCart">My Cart</a>
-					</li>
 					<li class="nav-item">
 						{{!-- main.js router(/login)--}}
 						<a href="/auth/login" class="nav-link">Login</a>

@@ -18,14 +18,14 @@ router.get("/",      async function(req, res) {
 
     try {
         const cart = await Cart.findAll({
-            // where: { user_id: req.user.uuid }
+            where: { user_id: req.user.uuid }
         });
 
         console.log(cart);
 
         let total = 0
         for (let prod in cart) {
-            total += cart[prod].product_price * cart[prod].product_qty;
+            total += cart[prod].product_price;
         } 
 
         const total2 = total;
@@ -49,12 +49,11 @@ router.get("/addToCart/:name", async function(req, res){
     try {
         const products = await Products.findOne({ where : { name: req.params.name } });
 
-        return res.render('cart/createCart', {
+        return res.render('cart/addCart', {
             user_id: req.user.uuid,
             product_id: products.uuid,
             product_name: req.params.name,
             product_price: products.price,
-            product_qty: quantity
         })        
     }
     catch(error) {
@@ -88,7 +87,7 @@ router.post("/addToCart/:name", async function(req, res){
         console.error(error);
     }
 
-    return res.redirect("/user/product");
+    return res.redirect("/productsPublic");
 });
 
 
@@ -123,5 +122,5 @@ router.post("/delete/:product_name", async function (req, res) {
         console.error(error);
     }
 
-    return res.redirect("/user/product");
+    return res.redirect("/myCart");
 });
