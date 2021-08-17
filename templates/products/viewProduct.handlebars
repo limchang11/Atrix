@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>View products (Admin)</h1>
+    <a href="/productsA/addProduct" class="btn btn-success">Add Product</a>
+    <br /><br />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each products}}
+                <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.description}}</td>
+                    <td>{{this.price}}</td>
+
+                    <td><a href="/productsA/editProduct/{{this.name}}" class="btn btn-info btn-sm">Edit</a></td>
+                    <td><a href="/productsA/deleteProduct/{{this.name}}" class="btn btn-danger btn-sm">Delete</a></td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
