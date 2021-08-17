@@ -17,10 +17,15 @@ import RouterAuth  from './auth.mjs';
 import RouterAdmin from './admin/admin.mjs';
 import RouterCreateInvoice from './invoice.mjs'
 import RouterSupplier from './supplier.mjs'
+import RouterAdminProduct from './admin/product.mjs'
+import RouterProduct from './user/product.mjs'
+
 router.use("/auth",  RouterAuth);
 router.use("/admin", RouterAdmin);
 router.use("/invoice", RouterCreateInvoice);
 router.use("/supplier", RouterSupplier);
+router.use("/productsA", RouterAdminProduct);
+router.use("/productsPublic", RouterProduct)
 
 
 router.get("/", async function (req, res) {
@@ -33,12 +38,6 @@ router.get("/home",      async function(req, res) {
 	return res.render('index', {
 		title: "Atrix"
 	});
-});
-
-router.get("/product", async function(req, res) {
-	console.log("product page accessed");
-	
-	return res.render('product' );
 });
 
 router.get("/feedback", async function(req, res) {
