@@ -28,14 +28,20 @@
 </head>
 <body>
 
-	{{> navbar}}
+	{{!-- {{#if user == 'admin'}} 
+		{{> navbarAdmin }}
+	{{else}}
+			{{> navbar }}
+	{{/if}} --}}
+	{{> navbar }}
+
 	<div class="container">
-		{{> flashmsg}}
-		{{> msg}}
-		{{> error}}
-		{{{body}}}
+		{{> flashmsg }}
+		{{> msg }}
+		{{> error }}
+		{{{ body }}}
 	</div>
 	{{> footer}}
-	
+
 </body>
 </html>
