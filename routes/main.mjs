@@ -1,6 +1,8 @@
 import { Router }       from 'express';
 import { flashMessage } from '../utils/flashmsg.mjs';
 import { Feedback } from '../data/feedback.mjs';
+import BodyParser from 'body-parser';
+var urlencodedParser = BodyParser.urlencoded({ extended: false });
 
 const router = Router();
 export default router;
@@ -19,6 +21,7 @@ import RouterCreateInvoice from './invoice.mjs'
 import RouterSupplier from './supplier.mjs'
 import RouterAdminProduct from './admin/product.mjs'
 import RouterProduct from './user/product.mjs'
+import RouterCart from './user/cart.mjs'
 
 router.use("/auth",  RouterAuth);
 router.use("/admin", RouterAdmin);
@@ -26,6 +29,7 @@ router.use("/invoice", RouterCreateInvoice);
 router.use("/supplier", RouterSupplier);
 router.use("/productsA", RouterAdminProduct);
 router.use("/productsPublic", RouterProduct)
+router.use("/myCart", RouterCart);
 
 
 router.get("/", async function (req, res) {

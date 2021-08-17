@@ -4,8 +4,8 @@ const { Sequelize } = ORM;
 
 import { ModelUser } from './user.mjs';
 import { Products  } from './products.mjs';
-import { Cart  } from './cart.mjs';
 import { Feedback  } from './feedback.mjs';
+import { Cart  } from './cart.mjs';
 
 /**
  * @param database {ORM.Sequelize}
