@@ -35,7 +35,7 @@ router.post('/create', async function(req, res) {
         }
 
         try {
-            const supplier = await Supplier.create({
+            const Supplier = await Supplier.create({
                     name:    req.body.name,
                     address: req.body.address,
                     email:     req.body.email})
@@ -45,11 +45,11 @@ router.post('/create', async function(req, res) {
 		    console.error(error);
 		    return res.status(500).end();
         }
-        return res.render('createSupplier')
+        return res.render('viewSupplier')
     }
     catch(error) {
         console.error("Error updating reward item(s)")
-        return res.render('product')
+        return res.render('viewSupplier')
     }
 });
 
@@ -58,4 +58,78 @@ router.post('/create', async function(req, res) {
 router.get("/read",      async function(req, res) {
 	console.log("View supplier page accessed");
 	return res.render('viewSupplier');
+});
+
+// Update Supplier details
+router.get("/update", async function(req, res){
+	console.log(" edit supplier page accessed");
+
+    try {
+        const suppliers = await Supplier.findOne({ where : { name: req.params.name } })
+
+        return res.render('createSupplier', {
+            name: req.params.name,
+            address: suppliers.address,
+            email: suppliers.email,
+        })
+    }
+
+    catch (error) {
+        console.log("Error fetching product");
+        console.log(error);
+    }
+})
+
+router.post("/update", async function (req, res){
+    let errors = [];
+
+    try {
+        const update = await Products.update({
+            name:           req.body.name,
+            address:    req.body.address,
+            email:          req.body.email,
+        }, { where: { uuid: req.body.uuid}});
+
+        console.log("Successfully updated product");
+    }
+    catch(error) {
+        console.error("Error updating product");
+        console.error(error);
+        return res.status(500).end();
+    }
+
+    return res.redirect('/read');
+})
+
+// Delete supplier
+router.get("/delete", async function(req, res){
+    console.log(" delete supplier page accessed");
+
+    try {
+        const products = await Products.findOne({ where: { name: req.params.name } });
+        return res.render("viewSupplier", {
+            name:   req.params.name,
+        })
+    }
+    catch(error) {
+        console.log("Error fetching product");
+        console.log(error);
+    }
+});
+
+router.post("/delete", async function (req, res){
+    try {
+        const del = await Products.destroy({
+            where: { uuid: req.body.uuid }
+        });
+
+        console.log("Successfully deleted product");
+    }
+    catch(error) {
+        console.error("Error has occured when trying to delete supplier");
+        console.error(error);
+        return res.status(500).end();
+    }
+
+    return res.redirect('/viewSupplier');
 });
