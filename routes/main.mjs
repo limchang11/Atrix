@@ -22,7 +22,7 @@ import RouterSupplier from './supplier.mjs'
 import RouterAdminProduct from './admin/product.mjs'
 import RouterProduct from './user/product.mjs'
 import RouterCart from './user/cart.mjs'
-import RouterOrder from '/user/order.mjs'
+import RouterOrder from './user/order.mjs'
 
 router.use("/auth",  RouterAuth);
 router.use("/admin", RouterAdmin);

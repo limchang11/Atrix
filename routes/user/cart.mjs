@@ -1,7 +1,6 @@
 import { Router }       from 'express';
 import { Products }    from '../../data/products.mjs';
 import { Cart }         from '../../data/cart.mjs';
-import { Order }         from '../../data/order.mjs';
 
 const router = Router();
 export default router;
