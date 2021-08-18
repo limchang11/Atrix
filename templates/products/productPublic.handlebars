@@ -45,11 +45,11 @@
                                     <td>{{this.name}}</td>
                                     <td>{{this.description}}</td>
                                     <td>{{this.price}}</td>
-                                    {{#if user}}
+                                    {{!-- {{#if user}} --}}
                                     <td><a href="/myCart/addToCart/{{this.name}}" class="btn btn-warning">Add To Cart</a></td>
-                                    {{else}}
+                                    {{!-- {{else}}
                                     <td><a href="/myCart/noLogin/{{this.name}}" class="btn btn-warning">Add To Cart</a></td>
-                                    {{/if}}
+                                    {{/if}} --}}
                                 </tr>
                             {{/each}}
                         </tbody>
