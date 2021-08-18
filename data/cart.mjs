@@ -15,6 +15,7 @@ export class Cart extends Model {
 			"product_id"       : { type: DataTypes.CHAR(36),  	allowNull: false },
             "product_name"     : { type: DataTypes.STRING(64),  allowNull: false },
             "product_price"    : { type: DataTypes.FLOAT,     	allowNull: false },
+			"product_qty"	   : { type:DataTypes.INTEGER,     allowNull: false, defaultValue: 1},
 		}, {
 			"sequelize": database,
 			"modelName": "Cart",

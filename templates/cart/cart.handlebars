@@ -31,33 +31,35 @@
                         <br>
                         <div>
                         <table class="table table-striped">
+                            {{#if cart}}
                             <thead>
                                 <tr>
-                                    <th width="60%">Item</th>
-                                    <th width="20%">Price</th>
+                                    <th width="40%">Item</th>
+                                    <th width="20%">Price ($)</th>
+                                    <th width="20%">Quantity</th>
                                     <th width="20%"></th>
                                 </tr>
                             </thead>
-
                             <tbody>
-                                {{#if cart}}
-                                    {{#each cart}}
-                                            <tr>
-                                                <td>{{this.product_name}}</td>
-                                                <td>{{this.product_price}}</td>
-                                                <td><a href="/myCart/delete/{{this.product_name}}" class="btn btn-danger">Remove</a></td>
-                                            </tr>
-                                    {{/each}}
+                                {{#each cart}}
                                     <tr>
-                                        <td><p>Total:</p></td>
-                                        <td></td>
-                                        <td><p>${{total}}</p></td>
+                                        <td>{{this.product_name}}</td>
+                                        <td>{{this.product_price}}</td>
+                                        <td>{{this.product_qty}}</td>
+                                        <td><a href="/myCart/delete/{{this.product_name}}" class="btn btn-danger">Remove</a></td>
                                     </tr>
-                                {{else}}
-                                    <p>Your cart is empty. Please add some items.</p>
-                                    <a href="/productsPublic" class="btn btn-success">Add Items</a>
-                                {{/if}}
+                                {{/each}}
+                                <tr>
+                                    <td><p>Total:</p></td>
+                                    <td><p>${{total}}</p></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                             </tbody>
+                             {{else}}
+                                <p>Your cart is empty. Please add some items.</p>
+                                <a href="/productsPublic" class="btn btn-success">Add Items</a>
+                            {{/if}}
                         </table>
                         </div>
                     </div>

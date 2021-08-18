@@ -25,7 +25,7 @@ router.get("/",      async function(req, res) {
 
         let total = 0
         for (let prod in cart) {
-            total += cart[prod].product_price;
+            total += cart[prod].product_price * cart[prod].product_qty;
         } 
 
         const total2 = total;
@@ -47,6 +47,8 @@ router.get("/addToCart/:name", async function(req, res){
 	console.log("add to cart page accessed");
 
     try {
+        // let quantity = 1;
+
         const products = await Products.findOne({ where : { name: req.params.name } });
 
         return res.render('cart/addCart', {
@@ -54,6 +56,7 @@ router.get("/addToCart/:name", async function(req, res){
             product_id: products.uuid,
             product_name: req.params.name,
             product_price: products.price,
+            // product_qty: quantity
         })        
     }
     catch(error) {
@@ -67,20 +70,29 @@ router.post("/addToCart/:name", async function(req, res){
 
     const prod = await Cart.findOne({ where: { product_id: products.uuid } })
 
+    let quantity = 1;
+
     try {
         if (prod == null) {
             const addProd = await Cart.create({
                 user_id: req.body.user_id,
                 product_id: req.body.product_id,
                 product_name: req.body.product_name,
-                product_price: req.body.product_price
+                product_price: req.body.product_price,
+                product_qty: quantity
             })
-    
-            console.log("Successfully added product to cart")
         }
         else {
-            
+            let addqty = prod.product_qty + 1;
+            const addQuantity = await Cart.update({
+                product_qty: addqty
+            }, { where: { user_id: req.body.user_id, product_id: req.body.product_id }});
+            // prod.product_qty += 1;
+            // if (prod.product_qty <= 0) prod.destroy();
+            // else prod.save();
         }
+        
+        console.log("Successfully added product to cart");
     }
     catch(error) {
         console.error("Error adding product to cart");
