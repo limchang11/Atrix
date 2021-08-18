@@ -42,6 +42,20 @@ router.get("/",      async function(req, res) {
 });
 
 
+// Add product to cart as non-user
+router.get("/noLogin/:name", async function(req, res){
+	console.log("add to cart page accessed");
+
+    try {
+        return res.render('cart/addCart')        
+    }
+    catch(error) {
+        console.log("Error adding product to cart as non-user");
+        console.log(error);
+    }
+});
+
+
 // Add product to cart
 router.get("/addToCart/:name", async function(req, res){
 	console.log("add to cart page accessed");
