@@ -15,9 +15,6 @@
 					<a class="nav-link" href="/productsPublic">Products</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="/productsA">Products (Admin)</a>
-				</li>
-				<li class="nav-item">
 					<a class="nav-link" href="/feedback">Contact Us</a>
 				</li>
 				<li class="nav-item">
@@ -28,7 +25,10 @@
 			<ul class="navbar-nav ml-auto">
 				{{#if admin}}
 					<li class="nav-item">
-					<a class="nav-item"href="/list">Manage Users</a>
+						<a class="nav-link" href="/productsA">Products (Admin)</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-item"href="/list">Manage Users</a>
 					</li>
 					<li class="nav-item dropdown">
 						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">Profile
@@ -43,6 +43,9 @@
 					</li>
 					{{/if}}
 				{{#if user}}
+					<li class="nav-item">
+						<a class="nav-link" href="/productsA">Products (Admin)</a>
+					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="/myCart">Cart</a>
 					</li>
