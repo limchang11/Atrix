@@ -10,12 +10,13 @@ export class Feedback extends Model {
 	**/
 	static initialize(database) {
 		Feedback.init({
+
 			"uuid"        : { type: DataTypes.CHAR(36), primaryKey: true, defaultValue: DataTypes.UUIDV4 },
 			"firstName"   : { type: DataTypes.STRING(64), allowNull: false },
 			"lastName"    : { type: DataTypes.STRING(64), allowNull: false },
 			"email"       : { type: DataTypes.STRING(64), allowNull: false },
 			"country"     : { type: DataTypes.STRING(64), allowNull: false },
-			"feedback"    : { type: DataTypes.STRING(64), allowNull: false }
+			"feedback"    : { type: DataTypes.STRING(64), allowNull: false },
 		}, {
 			"sequelize": database,
 			"modelName": "Feedback",
