@@ -87,9 +87,6 @@ router.post("/addToCart/:name", async function(req, res){
             const addQuantity = await Cart.update({
                 product_qty: addqty
             }, { where: { user_id: req.body.user_id, product_id: req.body.product_id }});
-            // prod.product_qty += 1;
-            // if (prod.product_qty <= 0) prod.destroy();
-            // else prod.save();
         }
         
         console.log("Successfully added product to cart");
