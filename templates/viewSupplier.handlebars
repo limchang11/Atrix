@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <body>
 <table class="table table-hover">
@@ -11,25 +12,17 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    {{#each suppliers}}
+        <tr>
+          <td>{{suppliers.name}}</td>
+          <td>{{suppliers.address}}</td>
+          <td>{{suppliers.email}}</td>
+        </tr>
+      {{/each}}
   </tbody>
 </table>
 <a href="create" class="button">Create Supplier</a>
+<a href="update" class="button">Update Supplier</a></td>
+<a href="delete" class="button">Delete Supplier</a></td>
 </body>
 </html>
