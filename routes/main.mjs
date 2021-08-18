@@ -23,7 +23,6 @@ router.get("/dynamic/*", async function (req, res) {
 //	TODO: Attach additional routers here
 import RouterAuth  from './auth.mjs';
 import RouterAdmin from './admin/admin.mjs';
-import RouterCreateInvoice from './invoice.mjs'
 import RouterSupplier from './supplier.mjs'
 import RouterAdminProduct from './admin/product.mjs'
 import RouterProduct from './user/product.mjs'
@@ -32,7 +31,6 @@ import RouterOrder from './user/order.mjs'
 
 router.use("/auth",  RouterAuth);
 router.use("/admin", RouterAdmin);
-router.use("/invoice", RouterCreateInvoice);
 router.use("/supplier", RouterSupplier);
 router.use("/productsA", RouterAdminProduct);
 router.use("/productsPublic", RouterProduct)
