@@ -1,8 +1,14 @@
 import { Router }       from 'express';
-import { flashMessage } from '../utils/flashmsg.mjs';
 import { Feedback } from '../data/feedback.mjs';
 import BodyParser from 'body-parser';
 var urlencodedParser = BodyParser.urlencoded({ extended: false });
+
+import { flashMessage } from '../utils/flashmsg.mjs'
+import { initialize_models } from '../data/models.mjs';
+import {ModelUser} from '../data/user.mjs'
+import ORM from 'sequelize'
+import { Database } from '../data/database.mjs';
+import { query } from 'express';
 
 const router = Router();
 export default router;
@@ -37,8 +43,7 @@ router.use("/order", RouterOrder);
 router.get("/", async function (req, res) {
 	return res.redirect("/home");
 });
-// ---------------- 
-//	TODO:	Common URL paths here
+
 router.get("/home",      async function(req, res) {
 	console.log("Home page accessed");
 	return res.render('index', {
@@ -50,6 +55,7 @@ router.get("/feedback", async function(req, res) {
 	console.log("feedback page accessed");
 	return res.render('feedback' );
 });
+
 router.post("/acknowledge", async function(req, res) {
 	console.log("feedback page accessed");
 	// to check what is stored:console.log(req.body);
@@ -105,3 +111,55 @@ router.post("/acknowledge", async function(req, res) {
 // 		}
 // 	});
 // 	console.log(feedlist);
+
+router.get("/profile",      async function(req, res) {
+	
+	console.log("profile page accessed");
+	return res.render('profile', {
+		title: "Atrix",
+		name: req.user.name,
+		email: req.user.email,
+		role: req.user.role
+	});
+});
+router.get("/editprofile",      async function(req, res) {
+	console.log("profile page accessed");
+	return res.render('editprofile', {
+		title: "Atrix",
+		name: req.user.name,
+		email: req.user.email,
+		
+	});
+});
+async function findAllRows() {
+
+    let notes = await Note.findAll({ raw: true });
+    console.log(notes);
+
+    sequelize.close();
+}
+router.get("/list",      async function(req, res){ 
+	console.log("profile page accessed");
+	return res.render('list', {
+		
+		
+	});
+
+	
+});
+router.post("/editprofile",      async function(req, res){ 
+	const user=await ModelUser.findOne({
+		uuid:req.user.uuid
+
+	})
+	user.name=req.body.name
+	user.email=req.body.email
+	user.save()
+	return res.render('profile', {
+		
+		
+	});
+
+	
+});
+

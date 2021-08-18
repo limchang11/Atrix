@@ -23,8 +23,25 @@
 				<li class="nav-item">
 					<a class="nav-link" href="/invoice/view">Invoice</a>
 				</li>
+				
 			</ul>
 			<ul class="navbar-nav ml-auto">
+				{{#if admin}}
+					<li class="nav-item">
+					<a class="nav-item"href="/list">Manage Users</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">Profile
+							</a>
+						<div class="dropdown-menu">
+							<a href="/profile" class="dropdown-item">View profile</a>
+							
+						</div>
+					</li>
+					<li class="nav-item">
+						<a href="/auth/logout" class="nav-link">Logout</a>
+					</li>
+					{{/if}}
 				{{#if user}}
 					<li class="nav-item">
 						<a class="nav-link" href="/myCart">Cart</a>
@@ -34,21 +51,23 @@
 							</a>
 						<div class="dropdown-menu">
 							<a href="/profile" class="dropdown-item">View profile</a>
-							<a href="/editprofile"  class="dropdown-item">edit profile</a>
+							
 						</div>
 					</li>
 					<li class="nav-item">
 						<a href="/auth/logout" class="nav-link">Logout</a>
 					</li>
+		
 				{{else}}
 					<li class="nav-item">
-						{{!-- main.js router(/login)--}}
+						
 						<a href="/auth/login" class="nav-link">Login</a>
 					</li>
 					<li class="nav-item">
 						<a href="/auth/register" class="nav-link">Register</a>
 					</li>
 				{{/if}}
+				
 			</ul>
 		</div>
 	</div>
