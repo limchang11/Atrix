@@ -46,14 +46,14 @@
                                         <td>{{this.product_name}}</td>
                                         <td>{{this.product_price}}</td>
                                         <td>{{this.product_qty}}</td>
-                                        <td><a href="/myCart/delete/{{this.product_name}}" class="btn btn-danger">Remove</a></td>
+                                        <td><a href="/myCart/delete/{{this.product_name}}" class="btn btn-danger" style="float: right;">Remove</a></td>
                                     </tr>
                                 {{/each}}
                                 <tr>
                                     <td><p>Total:</p></td>
                                     <td><p>${{total}}</p></td>
                                     <td></td>
-                                    <td></td>
+                                    <td><a href="/order/checkout" class="btn btn-success" style="float: right;">Checkout</a></td>
                                 </tr>
                             </tbody>
                              {{else}}

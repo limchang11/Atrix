@@ -22,6 +22,7 @@ import RouterSupplier from './supplier.mjs'
 import RouterAdminProduct from './admin/product.mjs'
 import RouterProduct from './user/product.mjs'
 import RouterCart from './user/cart.mjs'
+import RouterOrder from '/user/order.mjs'
 
 router.use("/auth",  RouterAuth);
 router.use("/admin", RouterAdmin);
@@ -30,6 +31,7 @@ router.use("/supplier", RouterSupplier);
 router.use("/productsA", RouterAdminProduct);
 router.use("/productsPublic", RouterProduct)
 router.use("/myCart", RouterCart);
+router.use("/order", RouterOrder);
 
 
 router.get("/", async function (req, res) {
